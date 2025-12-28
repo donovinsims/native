@@ -95,7 +95,7 @@ const ORCHIDS_STYLES = `
     font-size: 14.1px;
     line-height: 19px;
     letter-spacing: -0.282px;
-    border-radius: 2px;
+    border-radius: 8px;
     padding: 0 11px;
     height: 36px;
     transition: all 0.2s;
@@ -135,7 +135,7 @@ const ORCHIDS_STYLES = `
     width: 144px;
     height: 40px;
     background-color: var(--on-surface-raised);
-    border-radius: 2px;
+    border-radius: 8px;
     padding: 0 16px;
     border: 1px solid transparent;
     transition: all 0.2s;
@@ -191,7 +191,7 @@ const ORCHIDS_STYLES = `
   .orchids-theme-toggle {
     width: 36px;
     height: 36px;
-    border-radius: 2px;
+    border-radius: 8px;
     border: 1px solid var(--on-border);
     background: transparent;
     color: var(--on-text-secondary);
@@ -218,7 +218,7 @@ const ORCHIDS_STYLES = `
     font-size: 13px;
     line-height: 16px;
     padding: 0 16px;
-    border-radius: 2px;
+    border-radius: 8px;
     height: 36px;
     display: flex;
     align-items: center;
