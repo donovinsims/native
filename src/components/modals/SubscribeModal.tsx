@@ -60,11 +60,11 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
       <div className="p-xl pt-lg">
         {/* Icon */}
         <div className="flex justify-center mb-md">
-          <div className="size-12 flex items-center justify-center bg-surface-raised rounded-full shadow-inset">
+          <div className="size-12 flex items-center justify-center bg-ui-2 rounded-full">
             {isSuccess ? (
               <CheckCircle className="size-6 text-green-500" />
             ) : (
-              <Sparkles className="size-6 text-primary" />
+              <Sparkles className="size-6 text-text" />
             )}
           </div>
         </div>
@@ -74,13 +74,12 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
               <h2 className="text-h1 mb-xs">
                 You&apos;re subscribed!
               </h2>
-              <p className="text-body text-secondary mb-lg">
+              <p className="text-body text-grey mb-lg">
                 Thanks for subscribing. You&apos;ll receive our weekly curated software picks in your inbox.
               </p>
               <Button
                 onClick={handleClose}
-                className="w-full"
-                rounded="pill"
+                className="w-full rounded-xl"
               >
                 Done
               </Button>
@@ -93,7 +92,7 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
               </h2>
     
               {/* Description */}
-              <p className="text-body text-secondary text-center mb-lg">
+              <p className="text-body text-grey text-center mb-lg">
                 Stay up to date on the latest software discoveries and get the best apps delivered to your email inbox every week.
               </p>
     
@@ -108,7 +107,7 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
                         setError(null);
                       }}
                       placeholder="you@example.com"
-                      className={`rounded-pill ${error ? "border-red-500" : ""}`}
+                      className={`rounded-xl ${error ? "border-red-500" : ""}`}
                       disabled={isLoading}
                       autoComplete="email"
                     />
@@ -121,8 +120,7 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full"
-                  rounded="pill"
+                  className="w-full rounded-xl"
                 >
                   {isLoading ? (
                     <>
@@ -136,7 +134,7 @@ export function SubscribeModal({ isOpen, onClose }: SubscribeModalProps) {
               </form>
   
               {/* Footer text */}
-              <p className="text-caption text-secondary text-center mt-md">
+              <p className="text-caption text-grey text-center mt-md">
                 No spam — just curated software
               </p>
             </>

@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 import tailwindAnimate from "tailwindcss-animate";
 
 export default {
-	darkMode: ["class", '[data-theme="dark"]'],
+	darkMode: "class",
 	content: [
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
@@ -20,46 +20,22 @@ export default {
 		},
 		extend: {
 			colors: {
-				background: 'var(--color-background)',
-				surface: 'var(--color-surface)',
-				'surface-raised': 'var(--color-surface-raised)',
-				border: 'var(--color-border)',
-				primary: 'var(--color-text-primary)',
-				secondary: 'var(--color-text-secondary)',
-				'accent-dot': 'var(--color-accent-dot)',
-				'black-solid': 'var(--color-black-solid)',
-				'white-translucent': 'var(--color-white-translucent)',
-				'nav-pill-bg': 'var(--nav-pill-bg)',
-				'nav-pill-border': 'var(--nav-pill-border)',
-				'nav-pill-text': 'var(--nav-pill-text)',
+        page: 'var(--color-page)',
+        text: 'var(--color-text)',
+        grey: 'var(--color-grey)',
+        'ui-1': 'var(--color-ui-1)',
+        'ui-2': 'var(--color-ui-2)',
+        'ui-3': 'var(--color-ui-3)',
+        'ui-4': 'var(--color-ui-4)',
+        'border-1': 'var(--color-border-1)',
+        'border-2': 'var(--color-border-2)',
+        'border-3': 'var(--color-border-3)',
+        'border-4': 'var(--color-border-4)',
 			},
-			spacing: {
-				xs: 'var(--space-xs)',
-				sm: 'var(--space-sm)',
-				md: 'var(--space-md)',
-				lg: 'var(--space-lg)',
-				xl: 'var(--space-xl)',
-				xxl: 'var(--space-xxl)',
-			},
-			borderRadius: {
-				sm: 'var(--radius-sm)',
-				md: 'var(--radius-md)',
-				lg: 'var(--radius-lg)',
-				xl: 'var(--radius-xl)',
-				'2xl': 'var(--radius-2xl)',
-				avatar: 'var(--radius-avatar)',
-				pill: 'var(--radius-pill)',
-			},
-			boxShadow: {
-				card: 'var(--shadow-card)',
-				inset: 'var(--shadow-inset)',
-			},
-			fontSize: {
-				'h1': ['var(--type-h1-size)', { lineHeight: 'var(--type-h1-line-height)', letterSpacing: 'var(--type-h1-letter-spacing)', fontWeight: 'var(--type-h1-weight)' }],
-				'h2': ['var(--type-h2-size)', { lineHeight: 'var(--type-h2-line-height)', letterSpacing: 'var(--type-h2-letter-spacing)', fontWeight: 'var(--type-h2-weight)' }],
-				'body': ['var(--type-body-size)', { lineHeight: 'var(--type-body-line-height)', letterSpacing: 'var(--type-body-letter-spacing)', fontWeight: 'var(--type-body-weight)' }],
-				'caption': ['var(--type-caption-size)', { lineHeight: 'var(--type-caption-line-height)', fontWeight: 'var(--type-caption-weight)' }],
-			},
+      borderRadius: {
+        xl: '12px',
+        '2xl': '16px',
+      },
 			keyframes: {
 				'accordion-down': {
 					from: { height: '0' },

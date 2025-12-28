@@ -39,7 +39,7 @@ const logErrorsPlugin = () => ({
                           source: 'vite.overlay',
                         },
                         timestamp: Date.now(),
-                      }, '*');
+                      }, window.origin);
                     }
                   } catch (_) {}
                 }

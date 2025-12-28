@@ -59,44 +59,44 @@ interface SidebarNavigationProps {
 
 export default function SidebarNavigation({ onSubmitClick }: SidebarNavigationProps) {
   return (
-    <aside className="w-full border-r border-border flex-col justify-between bg-background p-4 max-w-[250px] h-[calc(100vh-67px)] hidden sm:flex fixed top-[67px]">
+    <aside className="w-full border-r border-border-1 flex-col justify-between bg-page p-4 max-w-[250px] h-[calc(100vh-67px)] hidden sm:flex fixed top-[67px]">
       <div className="overflow-y-auto">
         {categories.map((category, index) => (
           <a href={category.href} key={category.text}>
-            <div className="w-full flex gap-3 items-center px-3 py-2 rounded-lg cursor-pointer text-primary group transition-colors relative z-0 hover:bg-surface">
+            <div className="w-full flex gap-3 items-center px-3 py-2 rounded-xl cursor-pointer text-text group transition-colors relative z-0 hover:bg-ui-2">
               <div
-                className={`flex items-center justify-center w-[14px] h-[14px] group-hover:text-primary transition z-10 ${
-                  index === 0 ? "text-primary" : "text-secondary"
+                className={`flex items-center justify-center w-[14px] h-[14px] group-hover:text-text transition z-10 ${
+                  index === 0 ? "text-text" : "text-grey"
                 }`}
               >
                 <category.icon className="w-full h-full" />
               </div>
-              <span className="text-primary text-sm select-none z-10">
+              <span className="text-text text-sm select-none z-10">
                 {category.text}
               </span>
               {index === 0 && (
-                <div className="bg-surface-raised rounded-lg w-full h-full absolute top-0 left-0 z-0"></div>
+                <div className="bg-ui-3 rounded-xl w-full h-full absolute top-0 left-0 z-0"></div>
               )}
             </div>
           </a>
         ))}
       </div>
-      <div className="w-full pt-2 flex items-center flex-col gap-3 bg-background">
+      <div className="w-full pt-2 flex items-center flex-col gap-3 bg-page">
         <div className="w-full flex items-center gap-2">
           <a
             href="https://tally.so/r/wLP5VG"
             target="_blank"
             rel="noopener noreferrer"
-            className="h-[40px] w-full py-[10px] px-[18px] bg-surface-raised rounded-lg hover:bg-surface cursor-pointer flex items-center justify-between transition-colors text-secondary hover:text-primary"
+            className="h-[40px] w-full py-[10px] px-[18px] bg-ui-3 rounded-xl hover:bg-ui-2 cursor-pointer flex items-center justify-between transition-colors text-grey hover:text-text"
           >
             <span className="text-sm">Sponsor us</span>
-            <ArrowUpRight className="w-[14px] h-[14px] text-secondary" />
+            <ArrowUpRight className="w-[14px] h-[14px] text-grey" />
           </a>
           <a
             href="https://x.com/seesawsite"
             target="_blank"
             rel="noopener noreferrer"
-            className="h-[40px] py-[10px] px-[18px] bg-surface-raised rounded-lg hover:bg-surface cursor-pointer flex items-center justify-between transition-colors text-secondary hover:text-primary"
+            className="h-[40px] py-[10px] px-[18px] bg-ui-3 rounded-xl hover:bg-ui-2 cursor-pointer flex items-center justify-between transition-colors text-grey hover:text-text"
           >
             <XIcon className="w-[14px] h-[14px]" />
           </a>
@@ -104,11 +104,11 @@ export default function SidebarNavigation({ onSubmitClick }: SidebarNavigationPr
         <Button
           onClick={onSubmitClick}
           variant="secondary"
-          className="w-full rounded-pill"
+          className="w-full rounded-xl"
         >
           Submit
         </Button>
-        <span className="text-caption text-secondary leading-5">
+        <span className="text-caption text-grey leading-5">
           © 2025 SEESAW Studios
         </span>
       </div>
