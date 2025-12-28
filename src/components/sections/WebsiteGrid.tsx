@@ -69,13 +69,13 @@ export function WebsiteCard({ item, onClick, onLoginClick }: { item: Website; on
       {/* Card Preview */}
         <motion.button
           onClick={handleClick}
-          className="relative w-full block overflow-hidden transition-all duration-500 bg-surface dark:bg-surface border border-border/40 rounded-sm hover:border-border/80"
+          className="relative w-full block overflow-hidden transition-all duration-500 bg-ui-1 border border-border-1 rounded-xl hover:border-border-2"
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 400, damping: 17 }}
         >
           <div className="relative w-full aspect-[16/10]">
               {/* Thumbnail Preview */}
-              <div className="absolute inset-0 bg-surface/50 overflow-hidden">
+              <div className="absolute inset-0 bg-ui-2 overflow-hidden">
                 <img 
                   src={item.previewImage} 
                   alt={item.title} 
@@ -96,13 +96,13 @@ export function WebsiteCard({ item, onClick, onLoginClick }: { item: Website; on
           onClick={handleClick}
           className="flex items-center gap-1.5 text-left flex-1 min-w-0"
         >
-          <span className="text-body font-semibold text-primary truncate">
+          <span className="text-body font-semibold text-text truncate">
             {item.title}
           </span>
           {item.category && (
             <>
-              <span className="text-secondary font-medium">·</span>
-              <span className="text-secondary text-body font-medium truncate">
+              <span className="text-grey font-medium">·</span>
+              <span className="text-grey text-body font-medium truncate">
                 {item.category}
               </span>
             </>
@@ -112,7 +112,7 @@ export function WebsiteCard({ item, onClick, onLoginClick }: { item: Website; on
             <div className="flex items-center gap-1 flex-shrink-0">
               <button
                 onClick={handleBookmark}
-                className="p-0.5 transition-colors text-secondary hover:text-primary bg-transparent focus:ring-0"
+                className="p-0.5 transition-colors text-grey hover:text-text bg-transparent focus:ring-0"
                 aria-label={bookmarked ? "Remove bookmark" : "Add bookmark"}
               >
                 <motion.div
@@ -127,7 +127,7 @@ export function WebsiteCard({ item, onClick, onLoginClick }: { item: Website; on
 
               <motion.button
                 onClick={handleExternalLink}
-                className="p-1.5 rounded-sm hover:bg-surface-raised transition-colors text-secondary hover:text-primary"
+                className="p-1.5 rounded-xl hover:bg-ui-3 transition-colors text-grey hover:text-text"
                 whileTap={{ scale: 0.9 }}
                 aria-label="Open in new tab"
               >

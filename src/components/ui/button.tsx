@@ -5,15 +5,15 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "./utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-xs whitespace-nowrap rounded-lg text-body font-medium transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 min-h-[44px] outline-none active:scale-[0.98]",
+  "inline-flex items-center justify-center gap-xs whitespace-nowrap rounded-xl text-body font-medium transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 min-h-[44px] outline-none active:scale-[0.98]",
   {
     variants: {
       variant: {
-        primary: "bg-black-solid text-white border-none hover:opacity-strong dark:bg-primary dark:text-background",
-        secondary: "bg-surface-raised text-primary border border-border hover:bg-surface",
-        tertiary: "bg-transparent text-secondary hover:text-primary hover:bg-surface-raised",
-        ghost: "bg-transparent border-none p-2 rounded-lg min-w-[40px] min-h-[40px] hover:bg-surface-raised",
-        link: "text-primary underline-offset-4 hover:underline",
+        primary: "bg-text text-page border-none hover:opacity-strong",
+        secondary: "bg-ui-2 text-text border border-border-1 hover:bg-ui-3",
+        tertiary: "bg-transparent text-grey hover:text-text hover:bg-ui-2",
+        ghost: "bg-transparent border-none p-2 rounded-xl min-w-[40px] min-h-[40px] hover:bg-ui-2",
+        link: "text-text underline-offset-4 hover:underline",
         destructive: "bg-red-500 text-white hover:bg-red-600",
       },
       size: {
@@ -23,18 +23,18 @@ const buttonVariants = cva(
         icon: "size-10 p-0",
       },
       rounded: {
-        default: "rounded-lg",
-        pill: "rounded-pill",
-        avatar: "rounded-avatar",
+        default: "rounded-xl",
+        pill: "rounded-2xl",
+        avatar: "rounded-full",
       }
     },
     defaultVariants: {
       variant: "primary",
       size: "default",
-        rounded: "pill",
-      },
+      rounded: "default",
     },
-  );
+  }
+);
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
