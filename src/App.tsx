@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useModal } from "./hooks/useModal.tsx";
-import HeaderNavigation from "./components/sections/HeaderNavigation";
+import { OrchidsNavBar } from "./components/OrchidsNavBar";
 import HeroHeader from "./components/sections/HeroHeader";
 import WebsiteGrid from "./components/sections/WebsiteGrid";
 import AppDetailPage from "./components/app-detail/AppDetailPage";
@@ -146,15 +146,18 @@ const App = () => {
     authModal.open();
   };
 
+  const handleCreateAccountClick = () => {
+    setAuthMode("signup");
+    authModal.open();
+  };
+
   return (
     <AuthProvider>
       <div className="relative min-h-screen bg-background text-primary transition-colors duration-200 flex flex-col">
-        <HeaderNavigation 
-          onSubscribeClick={subscribeModal.open}
-          onSubmitClick={submitModal.open}
-          onLoginClick={handleLoginClick}
-          onProfileClick={() => setCurrentView('profile')}
-          onHomeClick={() => {
+        <OrchidsNavBar
+          onSignInClick={handleLoginClick}
+          onCreateAccountClick={handleCreateAccountClick}
+          onLogoClick={() => {
             setCurrentView('home');
             setSelectedAppId(null);
           }}
