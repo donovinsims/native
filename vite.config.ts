@@ -28,6 +28,7 @@ const logErrorsPlugin = () => ({
                   // Also mirror to parent iframe with structured payload
                   try {
                     if (window.parent && window.parent !== window) {
+                      // SECURITY: Use `window.origin` to avoid leaking error details to foreign origins.
                       window.parent.postMessage({
                         type: 'ERROR_CAPTURED',
                         error: {
