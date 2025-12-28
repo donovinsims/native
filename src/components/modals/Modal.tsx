@@ -106,7 +106,7 @@ export function Modal({
               <div
                 ref={modalRef}
                 className={cn(
-                  "relative w-full max-w-md bg-background rounded-[32px] shadow-2xl ring-1 ring-white/5 animate-in fade-in slide-in-from-bottom-4 sm:zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto border border-border",
+                  "relative w-full max-w-md bg-ui-1 rounded-2xl shadow-2xl ring-1 ring-white/5 animate-in fade-in slide-in-from-bottom-4 sm:zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto border border-border-1",
                   className
                 )}
                 onTouchStart={handleTouchStart}
@@ -114,7 +114,7 @@ export function Modal({
             >
           {/* Swipe indicator for mobile */}
           <div className="md:hidden flex justify-center pt-sm pb-xs">
-            <div className="w-10 h-1 bg-border rounded-full" />
+            <div className="w-10 h-1 bg-border-1 rounded-full" />
           </div>
 
           {/* Close button */}
@@ -122,10 +122,10 @@ export function Modal({
             <button
               ref={closeButtonRef}
               onClick={onClose}
-              className="absolute top-md right-md size-10 flex items-center justify-center rounded-full hover:bg-surface-raised transition-colors z-10"
+              className="absolute top-md right-md size-10 flex items-center justify-center rounded-full hover:bg-ui-2 transition-colors z-10"
               aria-label="Close modal"
             >
-              <X className="size-5 text-secondary" />
+              <X className="size-5 text-grey" />
             </button>
           )}
 

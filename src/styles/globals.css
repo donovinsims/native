@@ -1,17 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-@import './theme.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-page: rgb(245, 245, 245);
+    --color-text: rgb(0, 0, 0);
+    --color-ui-1: rgb(255, 255, 255);
+    --color-ui-2: rgb(252, 252, 252);
+    --color-ui-3: rgb(247, 247, 247);
+    --color-ui-4: rgb(237, 237, 237);
+    --color-border-1: rgb(232, 232, 232);
+    --color-border-2: rgb(242, 242, 242);
+    --color-border-3: rgb(237, 237, 237);
+    --color-border-4: rgb(232, 232, 232);
+    --color-grey: rgb(117, 117, 117);
+  }
+
+  .dark {
+    --color-page: rgb(15, 15, 15);
+    --color-text: rgb(255, 255, 255);
+    --color-ui-1: rgb(20, 20, 20);
+    --color-ui-2: rgb(28, 28, 28);
+    --color-ui-3: rgb(36, 36, 36);
+    --color-ui-4: rgb(48, 48, 48);
+    --color-border-1: rgb(33, 33, 33);
+    --color-border-2: rgb(38, 38, 38);
+    --color-border-3: rgb(46, 46, 46);
+    --color-border-4: rgb(59, 59, 59);
+    --color-grey: rgb(145, 145, 145);
+  }
+
   * {
-    @apply border-border;
+    @apply border-border-1;
   }
 
   body {
-    @apply bg-background text-primary font-sans;
+    background-color: var(--color-page);
+    color: var(--color-text);
+    @apply font-sans;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
