@@ -153,7 +153,7 @@ const App = () => {
 
   return (
     <AuthProvider>
-      <div className="relative min-h-screen bg-background text-primary transition-colors duration-200 flex flex-col">
+      <div className="relative min-h-screen bg-page text-text transition-colors duration-200 flex flex-col">
         <OrchidsNavBar
           onSignInClick={handleLoginClick}
           onCreateAccountClick={handleCreateAccountClick}
