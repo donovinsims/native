@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, useOutletContext } from "react-router-dom";
-import DesktopAppDetail from "../sections/DesktopAppDetail";
+import DesktopAppDetail from "../app-detail/DesktopAppDetail";
 import { getAppDetail, AppDetail } from "../../lib/apps";
 import { MOCK_APPS } from "../../lib/mock-data";
 import { OutletContextType } from "../../types";
