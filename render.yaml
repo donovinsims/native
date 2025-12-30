@@ -7,14 +7,13 @@ previews:
 
 services:
   # Static site service
-  - type: static
-    name: native
+  - type: web    name: native
     repo: https://github.com/donovinsims/native
     branch: main
     
     # Build settings
     buildCommand: npm install && npm run build
-    publishDir: dist
+        staticPublishPath: dist
     
     # Resource plan
     plan: starter
