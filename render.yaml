@@ -1,0 +1,45 @@
+# Render Blueprint Configuration for Vite React Static Site
+# Enables preview environments for pull requests
+
+# Enable automatic preview environments
+previews:
+  generation: automatic
+
+services:
+  # Static site service
+  - type: static
+    name: native
+    repo: https://github.com/donovinsims/native
+    branch: main
+    
+    # Build settings
+    buildCommand: npm install && npm run build
+    publishDir: dist
+    
+    # Resource plan
+    plan: starter
+    
+    # Preview plan (for PR previews)
+    previewPlan: starter
+    
+    # Environment variables
+    envVars:
+      - key: NODE_VERSION
+        value: 18
+      - key: IS_PULL_REQUEST
+        value: false
+    
+    # Custom headers (optional)
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+    
+    # Custom routes (optional - for SPA routing)
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
