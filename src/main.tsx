@@ -6,7 +6,7 @@ if (typeof window !== "undefined") {
   const sendToParent = (data: any) => {
     try {
       if (window.parent && window.parent !== window) {
-        window.parent.postMessage(data, "*");
+        window.parent.postMessage(data, window.location.origin);
       }
     } catch {}
   };
