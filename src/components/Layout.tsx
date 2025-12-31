@@ -9,7 +9,10 @@ import { useModal } from "../hooks/useModal";
 import { useState } from "react";
 import { Toaster } from "./ui/sonner";
 
+import { useTheme } from "next-themes";
+
 const Layout = () => {
+  const { setTheme } = useTheme();
   const subscribeModal = useModal();
   const submitModal = useModal();
   const authModal = useModal();
@@ -32,6 +35,7 @@ const Layout = () => {
         navItems={[{ label: 'Home', href: '/' }, { label: 'Profile', href: '/profile' }]}
         onSignInClick={handleLoginClick}
         onCreateAccountClick={handleSignUpClick}
+        onThemeChange={(theme) => setTheme(theme)}
       />
       <div className="flex-grow pt-[72px]">
         <Outlet context={{ onLoginClick: handleLoginClick, onSubscribeClick: subscribeModal.open, onSubmitClick: submitModal.open }} />

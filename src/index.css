@@ -53,6 +53,31 @@ All colors MUST be HSL.
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom Design System Mappings - Light Mode */
+    --color-page: 0 0% 100%;
+    /* same as background */
+    --color-text: 222.2 47.4% 11.2%;
+    /* same as primary */
+    --color-grey: 215.4 16.3% 46.9%;
+    /* same as muted-foreground */
+
+    --color-ui-1: 0 0% 100%;
+    /* card bg */
+    --color-ui-2: 210 40% 96.1%;
+    /* secondary/hover */
+    --color-ui-3: 210 40% 96.1%;
+    /* muted */
+    --color-ui-4: 214.3 31.8% 91.4%;
+    /* border-like */
+
+    --color-border-1: 214.3 31.8% 91.4%;
+    /* border */
+    --color-border-2: 214.3 31.8% 91.4%;
+    --color-border-3: 222.2 47.4% 11.2%;
+    /* primary/strong border */
+    --color-border-4: 215.4 16.3% 46.9%;
+    /* grey border */
   }
 
   .dark {
@@ -91,6 +116,31 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom Design System Mappings - Dark Mode */
+    --color-page: 222.2 84% 4.9%;
+    /* same as background */
+    --color-text: 210 40% 98%;
+    /* same as foreground */
+    --color-grey: 215 20.2% 65.1%;
+    /* same as muted-foreground */
+
+    --color-ui-1: 222.2 84% 4.9%;
+    /* card bg */
+    --color-ui-2: 217.2 32.6% 17.5%;
+    /* secondary/hover */
+    --color-ui-3: 217.2 32.6% 17.5%;
+    /* muted */
+    --color-ui-4: 217.2 32.6% 17.5%;
+    /* border-like */
+
+    --color-border-1: 217.2 32.6% 17.5%;
+    /* border */
+    --color-border-2: 217.2 32.6% 17.5%;
+    --color-border-3: 210 40% 98%;
+    /* primary/strong border */
+    --color-border-4: 215 20.2% 65.1%;
+    /* grey border */
   }
 }
 

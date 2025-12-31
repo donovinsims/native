@@ -23,15 +23,15 @@ const Footer = ({ onSubmitClick, onSubscribeClick }: FooterProps) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto border-t border-border-1 bg-page py-xl transition-colors">
+    <footer className="mt-auto border-t border-border-1 bg-page py-12 transition-colors">
       <Container>
-        <div className="grid grid-cols-1 gap-xl md:grid-cols-4 lg:grid-cols-5">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-4 lg:grid-cols-5">
           {/* Logo and Tagline */}
           <div className="md:col-span-2 lg:col-span-2">
-              <a
-                className="flex w-max cursor-pointer items-center gap-xs rounded-full border border-border-1 bg-page px-md py-sm text-h1 leading-none transition-all duration-200 ease-in-out hover:-rotate-3 hover:border hover:bg-ui-2 mb-md"
-                href="/"
-              >
+            <a
+              className="flex w-max cursor-pointer items-center gap-2 rounded-full border border-border-1 bg-page px-4 py-1.5 text-h1 leading-none transition-all duration-200 ease-in-out hover:-rotate-3 hover:border hover:bg-ui-2 mb-6"
+              href="/"
+            >
               <span>see</span>
               <MagicIcon className="w-[10.67px]" />
               <span>saw</span>
@@ -43,10 +43,10 @@ const Footer = ({ onSubmitClick, onSubscribeClick }: FooterProps) => {
 
           {/* Directory Links */}
           <div>
-            <h4 className="text-text h4 mb-md">Directory</h4>
-            <ul className="space-y-sm">
+            <h4 className="text-text h4 mb-6">Directory</h4>
+            <ul className="space-y-2">
               <li>
-                <button 
+                <button
                   onClick={onSubmitClick}
                   className="text-grey body-md hover:text-text transition-colors"
                 >
@@ -54,7 +54,7 @@ const Footer = ({ onSubmitClick, onSubscribeClick }: FooterProps) => {
                 </button>
               </li>
               <li>
-                <button 
+                <button
                   onClick={onSubscribeClick}
                   className="text-grey body-md hover:text-text transition-colors"
                 >
@@ -71,12 +71,12 @@ const Footer = ({ onSubmitClick, onSubscribeClick }: FooterProps) => {
 
           {/* Connect Links */}
           <div>
-            <h4 className="text-text h4 mb-md">Connect</h4>
-            <ul className="space-y-sm">
+            <h4 className="text-text h4 mb-6">Connect</h4>
+            <ul className="space-y-2">
               <li>
-                <a 
-                  href="https://twitter.com" 
-                  target="_blank" 
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-grey body-md hover:text-text transition-colors"
                 >
@@ -84,9 +84,9 @@ const Footer = ({ onSubmitClick, onSubscribeClick }: FooterProps) => {
                 </a>
               </li>
               <li>
-                <a 
-                  href="https://github.com" 
-                  target="_blank" 
+                <a
+                  href="https://github.com"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-grey body-md hover:text-text transition-colors"
                 >
@@ -103,8 +103,8 @@ const Footer = ({ onSubmitClick, onSubscribeClick }: FooterProps) => {
 
           {/* Legal Links */}
           <div>
-            <h4 className="text-text h4 mb-md">Legal</h4>
-            <ul className="space-y-sm">
+            <h4 className="text-text h4 mb-6">Legal</h4>
+            <ul className="space-y-2">
               <li>
                 <a href="#" className="text-grey body-md hover:text-text transition-colors">
                   Privacy Policy
@@ -120,12 +120,12 @@ const Footer = ({ onSubmitClick, onSubscribeClick }: FooterProps) => {
         </div>
 
         {/* Bottom Footer */}
-        <div className="mt-xl pt-lg border-t border-border-1 flex flex-col md:flex-row justify-between items-center gap-md">
+        <div className="mt-12 pt-8 border-t border-border-1 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-grey body-sm">
             © {currentYear} seesaw. All rights reserved.
           </p>
-          <div className="flex items-center gap-lg">
-            <p className="text-grey body-sm flex items-center gap-xs">
+          <div className="flex items-center gap-8">
+            <p className="text-grey body-sm flex items-center gap-1.5">
               Built with <span className="text-error">❤</span> for the web.
             </p>
           </div>

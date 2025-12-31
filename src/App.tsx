@@ -7,6 +7,7 @@ import AppDetailPageWrapper from "./components/pages/AppDetailPageWrapper";
 import { getApps, App as AppType } from "./lib/apps";
 import { MOCK_APPS } from "./lib/mock-data";
 import { AuthProvider } from "./hooks/use-auth";
+import { ThemeProvider } from "./components/theme-provider";
 
 const App = () => {
   const [apps, setApps] = useState<AppType[]>([]);
@@ -26,13 +27,15 @@ const App = () => {
   return (
     <Router>
       <AuthProvider>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<HomePage apps={apps} loading={loading} />} />
-            <Route path="/profile" element={<ProfilePage apps={apps} loading={loading} />} />
-            <Route path="/apps/:appId" element={<AppDetailPageWrapper />} />
-          </Route>
-        </Routes>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<HomePage apps={apps} loading={loading} />} />
+              <Route path="/profile" element={<ProfilePage apps={apps} loading={loading} />} />
+              <Route path="/apps/:appId" element={<AppDetailPageWrapper />} />
+            </Route>
+          </Routes>
+        </ThemeProvider>
       </AuthProvider>
     </Router>
   );
