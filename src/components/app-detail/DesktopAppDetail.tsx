@@ -16,13 +16,14 @@ interface DesktopAppDetailProps {
   onBack: () => void;
   onNavigateToApp?: (appId: string) => void;
   onLoginClick?: () => void;
+  isDrawer?: boolean;
 }
 
-export default function DesktopAppDetail({ 
-  app, 
-  onBack, 
-  onNavigateToApp, 
-  onLoginClick 
+export default function DesktopAppDetail({
+  app,
+  onBack,
+  onNavigateToApp,
+  onLoginClick
 }: DesktopAppDetailProps) {
   const { isBookmarked, toggleBookmark } = useBookmarks();
   const { user } = useAuth();
@@ -59,13 +60,13 @@ export default function DesktopAppDetail({
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="min-h-screen bg-background transition-colors duration-300"
     >
-      <div className="bg-background sticky top-[67px] z-10 py-4 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
+      <div className="bg-background py-4">
         <Container>
           <button
             onClick={onBack}
@@ -94,18 +95,18 @@ export default function DesktopAppDetail({
                 </div>
               </div>
 
-                  <div className="relative aspect-[16/10] bg-surface rounded-sm overflow-hidden border border-border/40 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] dark:hover:shadow-[0_0_0_1px_rgba(255,255,255,0.05)]">
-                  <img
-                    src={app.previewImage}
-                    alt={app.title}
-                    className="w-full h-full object-cover object-top"
-                    loading="lazy"
-                    onError={(e) => {
-                      e.currentTarget.src = app.faviconUrl;
-                      e.currentTarget.className = "w-full h-full object-contain p-24";
-                    }}
-                  />
-                </div>
+              <div className="relative aspect-[16/10] bg-surface rounded-sm overflow-hidden border border-border/40 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] dark:hover:shadow-[0_0_0_1px_rgba(255,255,255,0.05)]">
+                <img
+                  src={app.previewImage}
+                  alt={app.title}
+                  className="w-full h-full object-cover object-top"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.src = app.faviconUrl;
+                    e.currentTarget.className = "w-full h-full object-contain p-24";
+                  }}
+                />
+              </div>
             </div>
 
             {/* About Section */}
@@ -118,8 +119,8 @@ export default function DesktopAppDetail({
                   {app.about}
                 </p>
                 <p className="text-text-tertiary leading-relaxed text-lg">
-                  Experience {app.title}'s innovative approach to {app.category.toLowerCase()}. 
-                  Designed for modern workflows and built with attention to detail, 
+                  Experience {app.title}'s innovative approach to {app.category.toLowerCase()}.
+                  Designed for modern workflows and built with attention to detail,
                   it offers a seamless experience that sets it apart from the competition.
                 </p>
               </div>
@@ -151,51 +152,50 @@ export default function DesktopAppDetail({
             <div className="sticky top-[160px] space-y-8">
               {/* Primary Actions Card */}
               <div className="bg-background border border-border rounded-[32px] p-6 shadow-xl shadow-black/[0.02]">
-                  <div className="flex items-center justify-between mb-8">
-                    <span className="px-3 py-1 rounded-full bg-success/10 text-success text-xs font-bold uppercase tracking-wider">
-                      Official Website
-                    </span>
-                    <Button
-                      variant="secondary"
-                      size="icon"
-                      onClick={handleShare}
-                      className="rounded-xl border border-border transition-all hover:scale-105 active:scale-95"
-                      title="Share app"
-                    >
-                      <Share2 className="w-5 h-5 text-secondary" />
-                    </Button>
-                  </div>
+                <div className="flex items-center justify-between mb-8">
+                  <span className="px-3 py-1 rounded-full bg-success/10 text-success text-xs font-bold uppercase tracking-wider">
+                    Official Website
+                  </span>
+                  <Button
+                    variant="secondary"
+                    size="icon"
+                    onClick={handleShare}
+                    className="rounded-xl border border-border transition-all hover:scale-105 active:scale-95"
+                    title="Share app"
+                  >
+                    <Share2 className="w-5 h-5 text-secondary" />
+                  </Button>
+                </div>
 
-                      <div className="space-y-3">
-                        <Button
-                            asChild
-                            variant="primary"
-                            className="w-full h-12 text-base font-bold shadow-lg shadow-text-primary/10 hover:-translate-y-0.5 !bg-white !text-black border-none"
-                          >
-                            <a
-                              href={app.websiteUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center justify-center gap-2"
-                            >
-                              <span className="">Visit Website</span>
-                              <ExternalLink className="w-5 h-5 " />
-                            </a>
-                          </Button>
-  
-                    <Button
-                      onClick={handleBookmark}
-                      variant="secondary"
-                      className={`w-full h-12 text-base font-bold ${
-                        bookmarked 
-                          ? "border-[#ff4500] bg-[#ff4500]/5 text-[#ff4500] hover:bg-[#ff4500]/10 hover:border-[#ff4500]" 
-                          : "border-border hover:bg-surface text-primary hover:border"
-                      }`}
+                <div className="space-y-3">
+                  <Button
+                    asChild
+                    variant="primary"
+                    className="w-full h-12 text-base font-bold shadow-lg shadow-text-primary/10 hover:-translate-y-0.5 !bg-white !text-black border-none"
+                  >
+                    <a
+                      href={app.websiteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2"
                     >
-                      <Bookmark className={`w-5 h-5 ${bookmarked ? "fill-current" : ""}`} />
-                      <span>{bookmarked ? "Bookmarked" : "Bookmark App"}</span>
-                    </Button>
-                  </div>
+                      <span className="">Visit Website</span>
+                      <ExternalLink className="w-5 h-5 " />
+                    </a>
+                  </Button>
+
+                  <Button
+                    onClick={handleBookmark}
+                    variant="secondary"
+                    className={`w-full h-12 text-base font-bold ${bookmarked
+                      ? "border-[#ff4500] bg-[#ff4500]/5 text-[#ff4500] hover:bg-[#ff4500]/10 hover:border-[#ff4500]"
+                      : "border-border hover:bg-surface text-primary hover:border"
+                      }`}
+                  >
+                    <Bookmark className={`w-5 h-5 ${bookmarked ? "fill-current" : ""}`} />
+                    <span>{bookmarked ? "Bookmarked" : "Bookmark App"}</span>
+                  </Button>
+                </div>
 
                 <p className="text-text-tertiary text-sm text-center mt-4 px-4">
                   By visiting this website you agree to their terms of service and privacy policy.
@@ -231,7 +231,7 @@ export default function DesktopAppDetail({
                   Hand-picked alternatives that match your taste for quality design.
                 </p>
               </div>
-              <button 
+              <button
                 onClick={onBack}
                 className="text-primary font-bold hover:underline underline-offset-8"
               >
@@ -240,9 +240,9 @@ export default function DesktopAppDetail({
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-10">
               {app.relatedApps.map((relatedApp) => (
-                <WebsiteCard 
-                  key={relatedApp.id} 
-                  item={relatedApp} 
+                <WebsiteCard
+                  key={relatedApp.id}
+                  item={relatedApp}
                   onClick={onNavigateToApp}
                   onLoginClick={onLoginClick}
                 />

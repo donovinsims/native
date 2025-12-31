@@ -4,6 +4,7 @@ import Layout from "./components/Layout";
 import HomePage from "./components/pages/HomePage";
 import ProfilePage from "./components/pages/ProfilePage";
 import AppDetailPageWrapper from "./components/pages/AppDetailPageWrapper";
+import AuthCallback from "./components/pages/AuthCallback";
 import { getApps, App as AppType } from "./lib/apps";
 import { MOCK_APPS } from "./lib/mock-data";
 import { AuthProvider } from "./hooks/use-auth";
@@ -33,6 +34,7 @@ const App = () => {
               <Route path="/" element={<HomePage apps={apps} loading={loading} />} />
               <Route path="/profile" element={<ProfilePage apps={apps} loading={loading} />} />
               <Route path="/apps/:appId" element={<AppDetailPageWrapper />} />
+              <Route path="/auth/callback" element={<AuthCallback />} />
             </Route>
           </Routes>
         </ThemeProvider>
