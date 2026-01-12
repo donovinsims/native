@@ -17,7 +17,7 @@ if (typeof window !== "undefined") {
       type: "ERROR_CAPTURED",
       error: {
         message: event.message,
-        stack: event.error?.stack,
+        stack: undefined,
         filename: event.filename,
         lineno: event.lineno,
         colno: event.colno,
@@ -40,7 +40,7 @@ if (typeof window !== "undefined") {
       type: "ERROR_CAPTURED",
       error: {
         message,
-        stack,
+        stack: undefined,
         filename: undefined,
         lineno: undefined,
         colno: undefined,
