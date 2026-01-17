@@ -17,7 +17,6 @@ if (typeof window !== "undefined") {
       type: "ERROR_CAPTURED",
       error: {
         message: event.message,
-        stack: event.error?.stack,
         filename: event.filename,
         lineno: event.lineno,
         colno: event.colno,
@@ -33,14 +32,11 @@ if (typeof window !== "undefined") {
       typeof reason === "object" && reason?.message
         ? String(reason.message)
         : String(reason);
-    const stack = typeof reason === "object" ? reason?.stack : undefined;
-
     // Mirror to parent iframe as well
     sendToParent({
       type: "ERROR_CAPTURED",
       error: {
         message,
-        stack,
         filename: undefined,
         lineno: undefined,
         colno: undefined,
