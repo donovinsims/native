@@ -17,7 +17,8 @@ if (typeof window !== "undefined") {
       type: "ERROR_CAPTURED",
       error: {
         message: event.message,
-        stack: event.error?.stack,
+        // Only include stack trace in development to prevent info disclosure
+        stack: import.meta.env.DEV ? event.error?.stack : undefined,
         filename: event.filename,
         lineno: event.lineno,
         colno: event.colno,
@@ -33,7 +34,8 @@ if (typeof window !== "undefined") {
       typeof reason === "object" && reason?.message
         ? String(reason.message)
         : String(reason);
-    const stack = typeof reason === "object" ? reason?.stack : undefined;
+    // Only include stack trace in development to prevent info disclosure
+    const stack = (import.meta.env.DEV && typeof reason === "object") ? reason?.stack : undefined;
 
     // Mirror to parent iframe as well
     sendToParent({
