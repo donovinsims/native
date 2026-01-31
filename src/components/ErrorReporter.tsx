@@ -24,7 +24,7 @@ export default function ErrorReporter({ error, reset }: ReporterProps) {
         type: "ERROR_CAPTURED",
         error: {
           message: e.message,
-          stack: e.error?.stack,
+          stack: import.meta.env.DEV ? e.error?.stack : undefined,
           filename: e.filename,
           lineno: e.lineno,
           colno: e.colno,
@@ -38,7 +38,7 @@ export default function ErrorReporter({ error, reset }: ReporterProps) {
         type: "ERROR_CAPTURED",
         error: {
           message: e.reason?.message ?? String(e.reason),
-          stack: e.reason?.stack,
+          stack: import.meta.env.DEV ? e.reason?.stack : undefined,
           source: "unhandledrejection",
         },
         timestamp: Date.now(),
@@ -80,7 +80,7 @@ export default function ErrorReporter({ error, reset }: ReporterProps) {
         type: "global-error-reset",
         error: {
           message: error.message,
-          stack: error.stack,
+          stack: import.meta.env.DEV ? error.stack : undefined,
           digest: error.digest,
           name: error.name,
         },
