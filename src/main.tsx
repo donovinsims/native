@@ -17,7 +17,8 @@ if (typeof window !== "undefined") {
       type: "ERROR_CAPTURED",
       error: {
         message: event.message,
-        stack: event.error?.stack,
+        // Only expose stack traces in development to prevent information leakage
+        stack: import.meta.env.DEV ? event.error?.stack : undefined,
         filename: event.filename,
         lineno: event.lineno,
         colno: event.colno,
@@ -40,7 +41,8 @@ if (typeof window !== "undefined") {
       type: "ERROR_CAPTURED",
       error: {
         message,
-        stack,
+        // Only expose stack traces in development to prevent information leakage
+        stack: import.meta.env.DEV ? stack : undefined,
         filename: undefined,
         lineno: undefined,
         colno: undefined,

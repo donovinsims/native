@@ -17,14 +17,15 @@ export default function ErrorReporter({ error, reset }: ReporterProps) {
     const inIframe = window.parent !== window;
     if (!inIframe) return;
 
-    const send = (payload: unknown) => window.parent.postMessage(payload, "*");
+    const send = (payload: unknown) => window.parent.postMessage(payload, window.location.origin);
 
     const onError = (e: ErrorEvent) =>
       send({
         type: "ERROR_CAPTURED",
         error: {
           message: e.message,
-          stack: e.error?.stack,
+          // Only expose stack traces in development to prevent information leakage
+          stack: import.meta.env.DEV ? e.error?.stack : undefined,
           filename: e.filename,
           lineno: e.lineno,
           colno: e.colno,
@@ -38,7 +39,8 @@ export default function ErrorReporter({ error, reset }: ReporterProps) {
         type: "ERROR_CAPTURED",
         error: {
           message: e.reason?.message ?? String(e.reason),
-          stack: e.reason?.stack,
+          // Only expose stack traces in development to prevent information leakage
+          stack: import.meta.env.DEV ? e.reason?.stack : undefined,
           source: "unhandledrejection",
         },
         timestamp: Date.now(),
@@ -80,14 +82,15 @@ export default function ErrorReporter({ error, reset }: ReporterProps) {
         type: "global-error-reset",
         error: {
           message: error.message,
-          stack: error.stack,
+          // Only expose stack traces in development to prevent information leakage
+          stack: import.meta.env.DEV ? error.stack : undefined,
           digest: error.digest,
           name: error.name,
         },
         timestamp: Date.now(),
         userAgent: navigator.userAgent,
       },
-      "*"
+      window.location.origin
     );
   }, [error]);
 
